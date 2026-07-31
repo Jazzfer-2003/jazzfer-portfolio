@@ -1,0 +1,38 @@
+# ── WordPress core (install separately from wordpress.org) ──
+/*
+!/wp-config.php.example
+!/wp-content/
+!wp-content/mu-plugins/
+!wp-content/mu-plugins/jazzfer-custom.php
+!wp-content/uploads/
+!wp-content/uploads/custom.css
+!wp-content/uploads/custom.js
+!wp-content/uploads/nature.jpg
+!wp-content/uploads/2026/
+!wp-content/uploads/2026/07/
+!wp-content/uploads/2026/07/ji-icon.png
+!wp-content/uploads/2026/07/project-pic.jpeg
+
+# ── Secrets & local config (never commit) ──
+wp-config.php
+wp-config-sample.php
+.htaccess
+*.log
+
+# ── Third-party / generated ──
+wp-content/index.php
+wp-content/plugins/
+wp-content/themes/
+wp-content/languages/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/uploads/certs/
+wp-content/uploads/wpcf7_uploads/
+wp-content/uploads/2026/07/*-150x150.*
+wp-content/uploads/2026/07/*-300x300.*
+wp-content/uploads/2026/07/project-pic-214x300.jpeg
+
+# ── OS / editor ──
+Thumbs.db
+Desktop.ini
+.vscode/

@@ -1,0 +1,77 @@
+<?php
+/**
+ * The base configuration for WordPress
+ *
+ * This is a SANITIZED example for public reference.
+ * Copy it to "wp-config.php" and fill in your real values.
+ *
+ * @package WordPress
+ */
+
+// ** Database settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'your_database_name' );
+
+/** Database username */
+define( 'DB_USER', 'your_db_user' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'your_db_password' );
+
+/** Database hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The database collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+/**#@+
+ * Authentication unique keys and salts.
+ *
+ * Generate your own at: https://api.wordpress.org/secret-key/1.1/salt/
+ */
+define('AUTH_KEY',         'CHANGE-ME-AUTH_KEY');
+define('SECURE_AUTH_KEY',  'CHANGE-ME-SECURE_AUTH_KEY');
+define('LOGGED_IN_KEY',    'CHANGE-ME-LOGGED_IN_KEY');
+define('NONCE_KEY',        'CHANGE-ME-NONCE_KEY');
+define('AUTH_SALT',        'CHANGE-ME-AUTH_SALT');
+define('SECURE_AUTH_SALT', 'CHANGE-ME-SECURE_AUTH_SALT');
+define('LOGGED_IN_SALT',   'CHANGE-ME-LOGGED_IN_SALT');
+define('NONCE_SALT',       'CHANGE-ME-NONCE_SALT');
+
+/**#@-*/
+
+/**
+ * WordPress database table prefix.
+ */
+$table_prefix = 'wp_';
+
+define( 'WP_DEBUG', false );
+
+/* Add any custom values between this line and the "stop editing" line. */
+
+/* That's all, stop editing! Happy publishing. */
+
+/** Disable the plugin/theme file editor for security. */
+if ( ! defined( 'DISALLOW_FILE_EDIT' ) ) {
+	define( 'DISALLOW_FILE_EDIT', true );
+}
+
+/**
+ * WP Mail SMTP credentials via constants.
+ * WPMS_ON must be true for the other constants to take effect.
+ * IMPORTANT: use a Gmail APP PASSWORD (with spaces), never your real Gmail password.
+ */
+define( 'WPMS_ON', true );
+define( 'WPMS_SMTP_USER', 'your.email@gmail.com' );
+define( 'WPMS_SMTP_PASS', 'your-16-char-gmail-app-password' );
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';
