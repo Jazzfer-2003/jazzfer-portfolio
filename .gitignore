@@ -1,5 +1,6 @@
 # ── WordPress core (install separately from wordpress.org) ──
 /*
+!README.md
 !/wp-config.php.example
 !/wp-content/
 !wp-content/mu-plugins/
