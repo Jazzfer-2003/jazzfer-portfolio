@@ -72,3 +72,85 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
   </div>
 </div>
 <!-- /wp:html -->' WHERE ID=12;
+-- Portfolio update for ID 44 - 4 new Ethel Programming certifications (Aug 2026)
+USE wordpress;
+UPDATE wp_posts SET post_content='<!-- wp:html -->
+<div class="page-section-wide">
+  <h2 class="reveal">My Certifications</h2>
+  <p class="section-sub reveal">Certificates and achievements I''ve earned throughout my academic journey as an IT student.</p>
+  <div class="card-grid">
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-1.png?v=2" alt="CompTIA Network Security 101" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>CompTIA Network Security 101</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Earned a certification in network security fundamentals, covering threat detection, secure network design, and risk management.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-2.png?v=2" alt="Information Security Management" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Information Security Management</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Completed training in information security management, covering risk assessment, security policies, data protection, and compliance standards.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-3.png?v=2" alt="Anti Virus Firewall Protection" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Anti Virus Firewall Protection</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Training focused on antivirus solutions, firewall configuration, threat prevention, and endpoint security best practices.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-4.png?v=2" alt="Data to defense: Mastering Information &amp; Network Security" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Data to defense: Mastering Information &amp; Network Security</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Comprehensive training covering the full spectrum of information and network security, from data protection strategies to advanced defense mechanisms.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-5.jpg?v=2" alt="Beyond Automation: The Power of Artificial Intelligence" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Beyond Automation: The Power of Artificial Intelligence</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Explored the transformative potential of AI beyond simple automation, covering machine learning, intelligent systems, and real-world AI applications.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-6.png" alt="Generative AI &amp; Augmented Reality: Shaping the Future of Digital Innovation" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Generative AI &amp; Augmented Reality: Shaping the Future of Digital Innovation</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Explored how generative AI and augmented reality are shaping the future of digital innovation, covering emerging AI tools, immersive AR experiences, and their real-world applications.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-7.png" alt="IT Infrastructure and Cloud Computing: Building the Digital Future" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>IT Infrastructure and Cloud Computing: Building the Digital Future</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Covered the foundations of IT infrastructure and cloud computing, including system architecture, cloud services and deployment, and building reliable digital solutions.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-8.jpg" alt="Smart Business with AI and Data Analytics" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Smart Business with AI and Data Analytics</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Learned how AI and data analytics drive smarter business decisions, covering data-driven strategies, analytics tools, and practical applications of AI in business.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="http://localhost/wordpress/wp-content/uploads/certs/cert-9.jpg" alt="Python in Action Using PyCharm: Learn, Code, Build!" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Python in Action Using PyCharm: Learn, Code, Build!</h3>
+        <div class="card-tags"><span class="card-tag">2026</span></div>
+        <p>Hands-on training in Python programming using PyCharm, covering coding fundamentals, building and running projects, and practical development workflows.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /wp:html -->' WHERE ID=44;
