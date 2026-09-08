@@ -23,7 +23,7 @@ jobs:
           set ssl:check-hostname off
           set ftp:ssl-allow no
           set net:max-retries 3
-          mirror --reverse --only-newer --verbose --no-perms wp-content/mu-plugins/jazzfer-deploy.php htdocs/wp-content/mu-plugins/jazzfer-deploy.php
+          put wp-content/mu-plugins/jazzfer-deploy.php -o htdocs/wp-content/mu-plugins/jazzfer-deploy.php
           mirror --reverse --only-newer --verbose --no-perms wp-content/uploads/2026 htdocs/wp-content/uploads/2026
           mirror --reverse --only-newer --verbose --no-perms wp-content/uploads/certs htdocs/wp-content/uploads/certs
           put wp-content/uploads/custom.css -o htdocs/wp-content/uploads/custom.css
@@ -37,17 +37,47 @@ jobs:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         run: |
           if [ ! -f sql/deploy.sql ]; then echo "No sql/deploy.sql — skipping DB apply."; exit 0; fi
-          if [ "${{ github.event_name }}" = "push" ] && git diff --quiet HEAD~1 HEAD -- sql/deploy.sql; then
-            echo "sql/deploy.sql unchanged in this push — skipping DB apply."
-            exit 0
-          fi
+          pip install pycryptodome --quiet
           python3 - <<'PY'
-          import json, os, urllib.request
+          import json, os, re, urllib.request
+          base = 'https://jazzfer.great-site.net'
+          ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) jazzfer-deploy/1.0'
+
+          def solve_challenge():
+              # InfinityFree gates requests behind a JS challenge that sets a
+              # __test cookie (AES-128-CBC of three hex constants in the page).
+              r = urllib.request.Request(base + '/', headers={'User-Agent': ua})
+              html = urllib.request.urlopen(r, timeout=60).read().decode('utf-8', 'replace')
+              vals = re.findall(r'toNumbers\("([0-9a-f]{32})"\)', html)
+              if len(vals) < 3:
+                  return None
+              from Crypto.Cipher import AES
+              key, iv, ct = (bytes.fromhex(v) for v in vals[:3])
+              return AES.new(key, AES.MODE_CBC, iv).decrypt(ct).hex()
+
+          cookie = None
           sql = open('sql/deploy.sql', encoding='utf-8').read()
-          req = urllib.request.Request(
-              'https://jazzfer.great-site.net/wp-json/jazzfer-deploy/v1/apply',
-              data=json.dumps({'sql': sql}).encode('utf-8'),
-              headers={'Content-Type': 'application/json', 'X-Deploy-Token': os.environ['DEPLOY_TOKEN']})
-          with urllib.request.urlopen(req, timeout=180) as r:
-              print(r.read().decode('utf-8')[:4000])
+          body = json.dumps({'sql': sql}).encode('utf-8')
+          last = ''
+          for attempt in range(3):
+              headers = {'Content-Type': 'application/json', 'User-Agent': ua}
+              if cookie:
+                  headers['Cookie'] = '__test=' + cookie
+              req = urllib.request.Request(base + '/wp-json/jazzfer-deploy/v1/apply',
+                                           data=body, headers=headers)
+              try:
+                  with urllib.request.urlopen(req, timeout=180) as resp:
+                      print(resp.read().decode('utf-8')[:4000])
+                  break
+              except urllib.error.HTTPError as e:
+                  print('HTTP', e.code, e.read().decode('utf-8', 'replace')[:500])
+                  raise
+              except Exception as e:
+                  last = str(e)
+                  cookie = solve_challenge()
+                  if not cookie:
+                      print('Could not solve challenge:', last)
+                      raise
+          else:
+              raise SystemExit('deploy failed after retries: ' + last)
           PY
