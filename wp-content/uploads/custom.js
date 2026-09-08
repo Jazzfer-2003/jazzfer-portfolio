@@ -29,9 +29,10 @@
 
     triggers.forEach(function(el) {
       el.addEventListener('click', function(e) {
-        var src = el.getAttribute('data-src') || el.src || '';
-        var actualSrc = el.querySelector('img') ? el.querySelector('img').src : src;
-        if (el.tagName === 'IMG') actualSrc = el.src;
+        // Unified: use currentSrc for <picture> WebP, fallback to src or data-src
+        var src = el.currentSrc || el.src || el.getAttribute('data-src') || '';
+        var actualSrc = el.querySelector('img') ? (el.querySelector('img').currentSrc || el.querySelector('img').src) : src;
+        if (el.tagName === 'IMG') actualSrc = el.currentSrc || el.src || el.getAttribute('data-src') || '';
         if (actualSrc) {
           img.src = actualSrc;
           overlay.classList.add('active');

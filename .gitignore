@@ -13,6 +13,25 @@
 !wp-content/uploads/2026/07/
 !wp-content/uploads/2026/07/ji-icon.png
 !wp-content/uploads/2026/07/project-pic.jpeg
+!wp-content/uploads/2026/07/enrollment-system.png
+!wp-content/uploads/2026/07/enrollment-system.webp
+!wp-content/uploads/2026/07/quizard.png
+!wp-content/uploads/2026/07/quizard.webp
+!wp-content/uploads/2026/07/polygon-shapes.png
+!wp-content/uploads/2026/07/polygon-shapes.webp
+!wp-content/uploads/2026/07/periodic-table.png
+!wp-content/uploads/2026/07/periodic-table.webp
+!wp-content/uploads/2026/07/snake-ladder.png
+!wp-content/uploads/2026/07/snake-ladder.webp
+!wp-content/uploads/2026/07/home.png
+!wp-content/uploads/2026/07/home.webp
+!wp-content/uploads/2026/07/home-v2.png
+!wp-content/uploads/2026/07/home-v2.webp
+!wp-content/uploads/2026/09/
+!wp-content/uploads/2026/09/*.png
+!wp-content/uploads/2026/09/*.webp
+!wp-content/uploads/2026/09/*.jpeg
+!wp-content/uploads/2026/09/*.jpg
 
 # ── Secrets & local config (never commit) ──
 wp-config.php
@@ -32,6 +51,9 @@ wp-content/uploads/wpcf7_uploads/
 wp-content/uploads/2026/07/*-150x150.*
 wp-content/uploads/2026/07/*-300x300.*
 wp-content/uploads/2026/07/project-pic-214x300.jpeg
+
+!sql/
+!sql/*.sql
 
 # ── OS / editor ──
 Thumbs.db
