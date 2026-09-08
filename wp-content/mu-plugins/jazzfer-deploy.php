@@ -35,7 +35,18 @@ function jazzfer_deploy_check_token(WP_REST_Request $request) {
     if ((int) get_transient($key) >= 10) {
         return new WP_Error('jazzfer_deploy_throttled', 'Too many failed attempts.', array('status' => 429));
     }
+    // The proxy layer on free hosting has been observed to strip custom
+    // X- headers, so also accept the token as a query param or body field.
     $token = $request->get_header('X-Deploy-Token');
+    if (!is_string($token) || $token === '') {
+        $token = isset($_GET['token']) ? (string) $_GET['token'] : '';
+    }
+    if (!is_string($token) || $token === '') {
+        $payload = $request->get_json_params();
+        if (is_array($payload) && isset($payload['token']) && is_string($payload['token'])) {
+            $token = $payload['token'];
+        }
+    }
     $ok = is_string($token) && $token !== ''
         && hash_equals(jazzfer_deploy_token_hash(), hash('sha256', $token));
     if (!$ok) {

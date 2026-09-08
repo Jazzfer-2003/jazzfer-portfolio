@@ -57,7 +57,7 @@ jobs:
 
           cookie = None
           sql = open('sql/deploy.sql', encoding='utf-8').read()
-          body = json.dumps({'sql': sql}).encode('utf-8')
+          body = json.dumps({'sql': sql, 'token': os.environ['DEPLOY_TOKEN']}).encode('utf-8')
           last = ''
           for attempt in range(4):
               headers = {'Content-Type': 'application/json', 'User-Agent': ua}
