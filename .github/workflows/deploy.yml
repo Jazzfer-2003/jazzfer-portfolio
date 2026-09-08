@@ -1,0 +1,53 @@
+name: Deploy to InfinityFree
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Deploy files via FTP
+        env:
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -u "$FTP_USER","$FTP_PASS" ftpupload.net <<'EOF'
+          set ssl:check-hostname off
+          set ftp:ssl-allow no
+          set net:max-retries 3
+          mirror --reverse --only-newer --verbose --no-perms wp-content/mu-plugins/jazzfer-deploy.php htdocs/wp-content/mu-plugins/jazzfer-deploy.php
+          mirror --reverse --only-newer --verbose --no-perms wp-content/uploads/2026 htdocs/wp-content/uploads/2026
+          mirror --reverse --only-newer --verbose --no-perms wp-content/uploads/certs htdocs/wp-content/uploads/certs
+          put wp-content/uploads/custom.css -o htdocs/wp-content/uploads/custom.css
+          put wp-content/uploads/custom.js -o htdocs/wp-content/uploads/custom.js
+          put wp-content/uploads/nature.jpg -o htdocs/wp-content/uploads/nature.jpg
+          bye
+          EOF
+
+      - name: Apply database updates
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          if [ ! -f sql/deploy.sql ]; then echo "No sql/deploy.sql — skipping DB apply."; exit 0; fi
+          if [ "${{ github.event_name }}" = "push" ] && git diff --quiet HEAD~1 HEAD -- sql/deploy.sql; then
+            echo "sql/deploy.sql unchanged in this push — skipping DB apply."
+            exit 0
+          fi
+          python3 - <<'PY'
+          import json, os, urllib.request
+          sql = open('sql/deploy.sql', encoding='utf-8').read()
+          req = urllib.request.Request(
+              'https://jazzfer.great-site.net/wp-json/jazzfer-deploy/v1/apply',
+              data=json.dumps({'sql': sql}).encode('utf-8'),
+              headers={'Content-Type': 'application/json', 'X-Deploy-Token': os.environ['DEPLOY_TOKEN']})
+          with urllib.request.urlopen(req, timeout=180) as r:
+              print(r.read().decode('utf-8')[:4000])
+          PY
