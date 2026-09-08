@@ -64,7 +64,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
         <h3>Quizard - QuizForge App</h3>
         <div class="card-tags"><span class="card-tag">JavaScript</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span><span class="card-tag">GitHub Pages</span></div>
         <p>An interactive quiz platform with dynamic question generation, score tracking, and responsive design - deployed on GitHub Pages.</p>
-        <div class="card-links"><a href="https://quizforge-app.github.io/quizard/" target="_blank" rel="noopener" aria-label="View live site for Quizard QuizForge App (opens in new tab)">View Live Site</a></div>
+        <div class="card-links"><a href="https://quizard-app.github.io/" target="_blank" rel="noopener" aria-label="View live site for Quizard QuizForge App (opens in new tab)">View Live Site</a></div>
       </div>
     </div>
     <div class="card-item reveal">

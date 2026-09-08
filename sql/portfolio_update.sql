@@ -154,3 +154,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
   </div>
 </div>
 <!-- /wp:html -->' WHERE ID=44;
+
+-- Portfolio update for ID 12 - Quizard link moved to quizard-app.github.io
+USE wordpress;
+UPDATE wp_posts SET post_content=REPLACE(post_content, 'https://quizforge-app.github.io/quizard/', 'https://quizard-app.github.io/') WHERE ID=12;
