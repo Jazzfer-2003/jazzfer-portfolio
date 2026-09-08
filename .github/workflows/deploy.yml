@@ -59,7 +59,7 @@ jobs:
           sql = open('sql/deploy.sql', encoding='utf-8').read()
           body = json.dumps({'sql': sql}).encode('utf-8')
           last = ''
-          for attempt in range(3):
+          for attempt in range(4):
               headers = {'Content-Type': 'application/json', 'User-Agent': ua}
               if cookie:
                   headers['Cookie'] = '__test=' + cookie
@@ -67,8 +67,7 @@ jobs:
                                            data=body, headers=headers)
               try:
                   with urllib.request.urlopen(req, timeout=180) as resp:
-                      print(resp.read().decode('utf-8')[:4000])
-                  break
+                      text = resp.read().decode('utf-8', 'replace')
               except urllib.error.HTTPError as e:
                   print('HTTP', e.code, e.read().decode('utf-8', 'replace')[:500])
                   raise
@@ -78,6 +77,17 @@ jobs:
                   if not cookie:
                       print('Could not solve challenge:', last)
                       raise
+                  continue
+              if text.lstrip().startswith('{'):
+                  print(text[:4000])
+                  break
+              # Anti-bot challenge arrives as HTTP 200 HTML — solve and retry.
+              print('challenge response, solving (attempt %d)' % (attempt + 1))
+              cookie = solve_challenge()
+              if not cookie:
+                  print('Unexpected response and challenge could not be solved:')
+                  print(text[:500])
+                  raise SystemExit('deploy failed')
           else:
               raise SystemExit('deploy failed after retries: ' + last)
           PY
