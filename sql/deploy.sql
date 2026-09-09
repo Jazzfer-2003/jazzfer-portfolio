@@ -1,5 +1,5 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
--- Regenerate with a local run; keep statements single-line-safe (quotes escaped as '').
+-- Regenerate with: php gen-deploy-sql.php
 -- Pages: 11=About, 12=Portfolio, 44=My Certifications.
 
 -- page 11
@@ -192,6 +192,94 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
         <h3>Python in Action Using PyCharm: Learn, Code, Build!</h3>
         <div class="card-tags"><span class="card-tag">2026</span></div>
         <p>Hands-on training in Python programming using PyCharm, covering coding fundamentals, building and running projects, and practical development workflows.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-10.png" alt="Networking Basics" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Networking Basics</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2023</span></div>
+        <p>Completed Cisco Networking Academy''s foundational networking course, covering network types, IP addressing, DNS and DHCP, and basic network configuration.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-11.png" alt="Computer Hardware Basics" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Computer Hardware Basics</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2024</span></div>
+        <p>Learned the components of computer systems, hardware assembly, peripherals, and how to troubleshoot common hardware issues.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-12.png" alt="Introduction to Cybersecurity" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Introduction to Cybersecurity</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2024</span></div>
+        <p>Completed an introduction to the cybersecurity field, covering common cyber threats, attacks and vulnerabilities, and how organizations defend against them.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-13.png" alt="Python Essentials 1" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Python Essentials 1</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed the Cisco and OpenEDG Python Institute course covering Python fundamentals, data types, control structures, and basic programming.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-14.png" alt="Ethical Hacker" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Ethical Hacker</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed hands-on training in ethical hacking, covering vulnerability assessment, penetration testing tools and techniques, and defensive security practices.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-15.png" alt="Endpoint Security" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Endpoint Security</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed training in endpoint security, covering device protection, anti-malware strategies, and securing systems against modern threats.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-16.png" alt="Network Defense" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Network Defense</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed training in network defense, covering firewalls, intrusion detection, access control lists, and network monitoring best practices.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-17.png" alt="Cyber Threat Management" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Cyber Threat Management</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed training in cyber threat management, covering threat intelligence, incident response, and risk management frameworks.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-18.png" alt="Digital Safety and Security Awareness" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Digital Safety and Security Awareness</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed the Cisco and OpenEDG course on digital safety, covering online privacy, recognizing threats and social engineering, and digital well-being.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-19.png" alt="Introduction to Data Science" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Introduction to Data Science</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed an introduction to data science, covering the data science process, data analysis concepts, and real-world applications.</p>
+      </div>
+    </div>
+    <div class="card-item reveal">
+      <div class="card-img"><img src="https://jazzfer.great-site.net/wp-content/uploads/certs/cert-20.png" alt="Security and Connectivity Support" loading="lazy" class="cert-img" /></div>
+      <div class="card-body">
+        <h3>Security and Connectivity Support</h3>
+        <div class="card-tags"><span class="card-tag">Cisco NetAcad</span><span class="card-tag">2025</span></div>
+        <p>Completed training in security and connectivity support, covering network troubleshooting, IP addressing, command-line diagnostics, and responding to common threats.</p>
       </div>
     </div>
   </div>

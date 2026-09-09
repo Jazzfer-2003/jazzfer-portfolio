@@ -51,15 +51,8 @@ wp-content/languages/
 wp-content/upgrade/
 wp-content/cache/
 wp-content/uploads/certs/*
-!wp-content/uploads/certs/cert-1.png
-!wp-content/uploads/certs/cert-2.png
-!wp-content/uploads/certs/cert-3.png
-!wp-content/uploads/certs/cert-4.png
-!wp-content/uploads/certs/cert-5.jpg
-!wp-content/uploads/certs/cert-6.png
-!wp-content/uploads/certs/cert-7.png
-!wp-content/uploads/certs/cert-8.jpg
-!wp-content/uploads/certs/cert-9.jpg
+!wp-content/uploads/certs/cert-*.png
+!wp-content/uploads/certs/cert-*.jpg
 wp-content/uploads/wpcf7_uploads/
 wp-content/uploads/2026/07/*-150x150.*
 wp-content/uploads/2026/07/*-300x300.*
