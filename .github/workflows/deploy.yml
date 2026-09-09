@@ -29,6 +29,7 @@ jobs:
           put wp-content/uploads/custom.css -o htdocs/wp-content/uploads/custom.css
           put wp-content/uploads/custom.js -o htdocs/wp-content/uploads/custom.js
           put wp-content/uploads/nature.jpg -o htdocs/wp-content/uploads/nature.jpg
+          put wp-content/uploads/Jazzfer-Inigo-Resume.pdf -o htdocs/wp-content/uploads/Jazzfer-Inigo-Resume.pdf
           bye
           EOF
 
