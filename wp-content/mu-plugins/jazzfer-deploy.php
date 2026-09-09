@@ -26,7 +26,22 @@ add_action('rest_api_init', function () {
         'permission_callback' => 'jazzfer_deploy_check_token',
         'callback' => 'jazzfer_deploy_apply',
     ));
+    register_rest_route('jazzfer-deploy/v1', '/diag', array(
+        'methods'  => 'GET',
+        'permission_callback' => 'jazzfer_deploy_check_token',
+        'callback' => 'jazzfer_deploy_diag',
+    ));
 });
+
+function jazzfer_deploy_diag(WP_REST_Request $request) {
+    global $wpdb;
+    $rows = $wpdb->get_results("SELECT ID, post_status, post_type, post_parent, post_name, post_date, post_date_gmt, post_modified FROM {$wpdb->posts} WHERE ID IN (100,101,12) ORDER BY ID", ARRAY_A);
+    return rest_ensure_response(array(
+        'rows' => $rows,
+        'mysql_now' => $wpdb->get_var("SELECT NOW()"),
+        'timezone' => function_exists('wp_timezone_string') ? wp_timezone_string() : get_option('timezone_string'),
+    ));
+}
 
 function jazzfer_deploy_check_token(WP_REST_Request $request) {
     // Brute-force throttle: 10 bad tokens per hour per IP blocks the endpoint.
