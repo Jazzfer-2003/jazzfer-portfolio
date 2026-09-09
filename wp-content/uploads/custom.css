@@ -1329,3 +1329,7 @@ header.ct-header#header[data-sticky] nav .sub-menu {
   font-size: 0.95rem !important;
   opacity: 0.9;
 }
+header.ct-header#header nav .sub-menu .ct-menu-link {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
