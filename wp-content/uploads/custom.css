@@ -1281,3 +1281,51 @@ body[data-dark="true"] .ghchart-wrap {
 body[data-dark="true"] .ghchart-wrap img {
   filter: invert(0.88) hue-rotate(180deg);
 }
+
+/* ═══════════ v3.1: nav dropdown (sub-menu) design ═══════════ */
+header.ct-header#header nav li.menu-item-has-children,
+header.ct-header#header nav li.page_item_has_children {
+  position: relative;
+}
+header.ct-header#header nav .sub-menu {
+  background: var(--pf-header-bg) !important;
+  border: 1px solid var(--pf-border);
+  border-radius: 0 0 16px 16px;
+  padding: 10px !important;
+  min-width: 280px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+header.ct-header#header nav .sub-menu .ct-menu-link {
+  color: var(--pf-text) !important;
+  font-size: 0.92rem !important;
+  font-weight: 500;
+  padding: 11px 16px !important;
+  border-radius: 10px;
+  white-space: normal !important;
+  line-height: 1.45;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+header.ct-header#header nav .sub-menu .ct-menu-link:hover,
+header.ct-header#header nav .sub-menu .ct-menu-link:focus-visible {
+  background: var(--pf-accent);
+  color: #fff !important;
+}
+header.ct-header#header nav .sub-menu li + li {
+  margin-top: 2px;
+}
+header.ct-header#header[data-sticky] nav .sub-menu {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile drawer: indent sub-pages cleanly */
+.mobile-menu .sub-menu {
+  margin-left: 14px;
+  border-left: 2px solid var(--pf-border);
+  padding-left: 6px !important;
+}
+.mobile-menu .sub-menu .ct-menu-link {
+  font-size: 0.95rem !important;
+  opacity: 0.9;
+}
