@@ -338,3 +338,6 @@ USE wordpress;
 
 -- Quizard relabeled: Personal Project (was Case Study) — card link, page title, tagline
 USE wordpress;
+
+-- Palale Enrollment System relabeled: Capstone Project (card tag/link, page title/tagline, About mention)
+USE wordpress;

@@ -1,6 +1,6 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
 -- Case studies use IDs 500001/500002 (collision-proof) and past dates (host clock skew safe).
--- Quizard is labeled Personal Project; Palale remains the Case Study.
+-- Palale = Capstone Project (500001); Quizard = Personal Project (500002).
 
 -- page 10
 UPDATE wp_posts SET post_content='
@@ -66,7 +66,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
     <div class="timeline-item">
       <h3>Web Developer — Freelance &amp; Academic Projects</h3>
       <div class="date">2023 – Present</div>
-      <p>Designed and built web applications used by real people: a complete enrollment system deployed live on Render, the Quizard study platform, and interactive learning tools like a Periodic Table Explorer and a Polygon Shapes Visualizer.</p>
+      <p>Designed and built web applications used by real people: my capstone enrollment system, deployed live on Render, the Quizard study platform, and interactive learning tools like a Periodic Table Explorer and a Polygon Shapes Visualizer.</p>
     </div>
     <div class="timeline-item">
       <h3>Cisco Networking Academy — Coursework</h3>
@@ -96,9 +96,9 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
       <div class="card-img"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.png" alt="Palale Enrollment System" loading="lazy" decoding="async" width="1920" height="1080"></picture></div>
       <div class="card-body">
         <h3>Palale Enrollment System</h3>
-        <div class="card-tags"><span class="card-tag">PHP</span><span class="card-tag">MySQL</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span></div>
+        <div class="card-tags"><span class="card-tag">Capstone</span><span class="card-tag">PHP</span><span class="card-tag">MySQL</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span></div>
         <p>A complete web-based enrollment system that handles student registration, subject management, and enrollment records with a secure admin dashboard.</p>
-        <div class="card-links"><a href="https://jazzfer.great-site.net/portfolio/palale-enrollment-system/">Case Study</a><a href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener" aria-label="View live site for Palale Enrollment System (opens in new tab)">View Live Site</a></div>
+        <div class="card-links"><a href="https://jazzfer.great-site.net/portfolio/palale-enrollment-system/">Capstone Project</a><a href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener" aria-label="View live site for Palale Enrollment System (opens in new tab)">View Live Site</a></div>
       </div>
     </div>
     <div class="card-item reveal">
@@ -364,6 +364,24 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 </div>
 <!-- /wp:html -->' WHERE ID=44;
 
+-- palale page 500001 (upsert, capstone project)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500001, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
+<div class="page-section">
+  <div class="tagline reveal reveal-delay-1">Capstone Project</div>
+  <h2 class="reveal reveal-delay-2">Palale Enrollment System — Capstone Project</h2>
+  <p class="section-sub reveal reveal-delay-3">A complete web-based enrollment system handling student registration, subject management, and enrollment records with a secure admin dashboard — deployed live on Render.</p>
+  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.png" alt="Palale Enrollment System — Capstone Project screenshot"></picture></div>
+  <div class="cs-meta reveal"><span class="card-tag">PHP</span><span class="card-tag">MySQL</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span></div>
+  <div class="cs-section reveal"><h2>The Problem</h2><p>Developed as my capstone project, this system replaces paper-based enrollment workflows that are slow, error-prone, and hard to audit. The goal was to replace that workflow with a system where student data stays organized, enrollment status is clear at a glance, and administrators can manage everything from one place.</p></div>
+  <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Student registration</strong> with input validation so records stay clean from the start.</li>
+        <li><strong>Subject management</strong> — add, edit, and organize subjects per school term.</li>
+        <li><strong>Enrollment records</strong> that track each student''s status through the process.</li>
+        <li><strong>Secure admin dashboard</strong> separating administrative tools from student-facing pages.</li></ul></div>
+  <div class="cs-section reveal"><h2>What I Learned</h2><p>The biggest challenge was modeling the enrollment workflow so records could never end up in a half-finished state. I solved it by designing the database schema around clear statuses and building the admin dashboard around those states. Deploying on Render also taught me a lot about configuring PHP applications and MySQL services in the cloud.</p></div>
+  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
+</div>
+<!-- /wp:html -->', 'Palale Enrollment System — Capstone Project', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500001', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
+
 -- quizard page 500002 (upsert, personal project)
 INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500002, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
 <div class="page-section">
@@ -381,22 +399,4 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
 </div>
 <!-- /wp:html -->', 'Quizard — Personal Project', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500002', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
-
--- palale page 500001 (upsert, case study)
-INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500001, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
-<div class="page-section">
-  <div class="tagline reveal reveal-delay-1">Case Study</div>
-  <h2 class="reveal reveal-delay-2">Palale Enrollment System — Case Study</h2>
-  <p class="section-sub reveal reveal-delay-3">A complete web-based enrollment system handling student registration, subject management, and enrollment records with a secure admin dashboard — deployed live on Render.</p>
-  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.png" alt="Palale Enrollment System — Case Study screenshot"></picture></div>
-  <div class="cs-meta reveal"><span class="card-tag">PHP</span><span class="card-tag">MySQL</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span></div>
-  <div class="cs-section reveal"><h2>The Problem</h2><p>Enrollment processes that depend on paper records and spreadsheets are slow, error-prone, and hard to audit. The goal of this project was to replace that workflow with a system where student data stays organized, enrollment status is clear at a glance, and administrators can manage everything from one place.</p></div>
-  <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Student registration</strong> with input validation so records stay clean from the start.</li>
-        <li><strong>Subject management</strong> — add, edit, and organize subjects per school term.</li>
-        <li><strong>Enrollment records</strong> that track each student''s status through the process.</li>
-        <li><strong>Secure admin dashboard</strong> separating administrative tools from student-facing pages.</li></ul></div>
-  <div class="cs-section reveal"><h2>What I Learned</h2><p>The biggest challenge was modeling the enrollment workflow so records could never end up in a half-finished state. I solved it by designing the database schema around clear statuses and building the admin dashboard around those states. Deploying on Render also taught me a lot about configuring PHP applications and MySQL services in the cloud.</p></div>
-  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
-</div>
-<!-- /wp:html -->', 'Palale Enrollment System — Case Study', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500001', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
 
