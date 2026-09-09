@@ -368,9 +368,9 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500002, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Personal Project</div>
-  <h2 class="reveal reveal-delay-2">Quizard — Case Study</h2>
+  <h2 class="reveal reveal-delay-2">Quizard — Personal Project</h2>
   <p class="section-sub reveal reveal-delay-3">An interactive quiz platform with dynamic question generation, score tracking, and a fully responsive interface — deployed on GitHub Pages.</p>
-  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard — Case Study screenshot"></picture></div>
+  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard — Personal Project screenshot"></picture></div>
   <div class="cs-meta reveal"><span class="card-tag">JavaScript</span><span class="card-tag">HTML5</span><span class="card-tag">CSS3</span><span class="card-tag">GitHub Pages</span></div>
   <div class="cs-section reveal"><h2>The Problem</h2><p>Studying is easier with instant feedback, but most quiz tools are heavy or full of distractions. Quizard was built as a lightweight, focused quiz app: open it, answer questions, see your score immediately — nothing else gets in the way.</p></div>
   <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Dynamic question generation</strong> so every session feels fresh instead of repeating a fixed list.</li>
