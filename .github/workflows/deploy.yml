@@ -12,7 +12,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+        run: |
+          sudo apt-get update -qq -o Acquire::Retries=3 || true
+          sudo apt-get install -y -qq lftp
 
       - name: Deploy files via FTP
         env:
