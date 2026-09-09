@@ -1356,3 +1356,15 @@ header.ct-header#header nav .sub-menu::before {
   top: -14px;
   height: 14px;
 }
+
+/* ─── v3.3: button icon alignment ─── */
+.btn-gradient {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center;
+  gap: 9px;
+}
+.btn-gradient .btn-arrow {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}

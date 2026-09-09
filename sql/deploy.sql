@@ -1,5 +1,6 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
 -- Case studies use IDs 500001/500002 (collision-proof) and past dates (host clock skew safe).
+-- Quizard is labeled Personal Project; Palale remains the Case Study.
 
 -- page 10
 UPDATE wp_posts SET post_content='
@@ -9,9 +10,9 @@ UPDATE wp_posts SET post_content='
   <p class="subtitle reveal reveal-delay-3">4th Year I.T Student &amp; Web Developer</p>
   <p class="desc reveal reveal-delay-3">Passionate about crafting modern web experiences. Currently studying Information Technology and turning ideas into reality through clean, efficient code.</p>
   <div class="hero-buttons reveal reveal-delay-4">
-    <a href="/portfolio/" class="btn-gradient primary">View My Work ↓</a>
-    <a href="/contact/" class="btn-gradient secondary">Let&#8217;s Talk →</a>
-    <a href="https://jazzfer.great-site.net/wp-content/uploads/Jazzfer-Inigo-Resume.pdf" class="btn-gradient outline" download>Download Résumé ↓</a>
+    <a href="/portfolio/" class="btn-gradient primary">View My Work <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m-7-7 7 7 7-7"/></svg></a>
+    <a href="/contact/" class="btn-gradient secondary">Let&#8217;s Talk <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></a>
+    <a href="https://jazzfer.great-site.net/wp-content/uploads/Jazzfer-Inigo-Resume.pdf" class="btn-gradient outline" download>Download Resume <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m-7-7 7 7 7-7"/></svg></a>
   </div>
   <div class="hero-social reveal reveal-delay-4">
     <a href="https://github.com/Jazzfer-2003" title="GitHub">GH</a>
@@ -34,7 +35,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
   <p class="reveal" style="font-size:1.05rem;line-height:1.8;opacity:0.85;margin-top:16px">Throughout my academic journey, I''ve worked on various projects ranging from simple websites to complex web applications. I enjoy solving problems and turning ideas into reality through code. When I''m not studying, I explore new tech trends and work on personal projects.</p>
 
   <h2 class="reveal" style="margin-top:60px">My Skills</h2>
-  <div class="reveal" style="margin-top:26px"><a href="https://jazzfer.great-site.net/wp-content/uploads/Jazzfer-Inigo-Resume.pdf" class="btn-gradient primary" download>Download My Résumé ↓</a></div>
+  <div class="reveal" style="margin-top:26px"><a href="https://jazzfer.great-site.net/wp-content/uploads/Jazzfer-Inigo-Resume.pdf" class="btn-gradient primary" download>Download My Resume <svg class="btn-arrow" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14m-7-7 7 7 7-7"/></svg></a></div>
   <div class="skills-grid reveal">
     <span class="skill-tag">HTML5</span>
     <span class="skill-tag">CSS3</span>
@@ -106,7 +107,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
         <h3>Quizard - QuizForge App</h3>
         <div class="card-tags"><span class="card-tag">JavaScript</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span><span class="card-tag">GitHub Pages</span></div>
         <p>An interactive quiz platform with dynamic question generation, score tracking, and responsive design - deployed on GitHub Pages.</p>
-        <div class="card-links"><a href="https://jazzfer.great-site.net/portfolio/quizard/">Case Study</a><a href="https://quizard-app.github.io/" target="_blank" rel="noopener" aria-label="View live site for Quizard QuizForge App (opens in new tab)">View Live Site</a></div>
+        <div class="card-links"><a href="https://jazzfer.great-site.net/portfolio/quizard/">Personal Project</a><a href="https://quizard-app.github.io/" target="_blank" rel="noopener" aria-label="View live site for Quizard QuizForge App (opens in new tab)">View Live Site</a></div>
       </div>
     </div>
     <div class="card-item reveal">
@@ -174,7 +175,7 @@ UPDATE wp_posts SET post_content='
         <li><span class="ci">&#128025;</span> <a href="https://github.com/Jazzfer-2003">GitHub</a></li>
         <li><span class="ci">&#128279;</span> <a href="https://www.linkedin.com/in/jazzfer-inigo-ab4ab9413/">LinkedIn</a></li>
         <li><span class="ci">&#128216;</span> <a href="https://web.facebook.com/jazzfer.quijano.inigo.2024">Facebook</a></li>
-        <li><span class="ci">&#128196;</span> <a href="https://jazzfer.great-site.net/wp-content/uploads/Jazzfer-Inigo-Resume.pdf" download>Download My Résumé (PDF)</a></li>
+        <li><span class="ci">&#128196;</span> <a href="https://jazzfer.great-site.net/wp-content/uploads/Jazzfer-Inigo-Resume.pdf" download>Download My Resume (PDF)</a></li>
       </ul>
     </div>
     <div class="contact-form-inner">
@@ -363,7 +364,25 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 </div>
 <!-- /wp:html -->' WHERE ID=44;
 
--- case study page 500001 (upsert)
+-- quizard page 500002 (upsert, personal project)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500002, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
+<div class="page-section">
+  <div class="tagline reveal reveal-delay-1">Personal Project</div>
+  <h2 class="reveal reveal-delay-2">Quizard — Case Study</h2>
+  <p class="section-sub reveal reveal-delay-3">An interactive quiz platform with dynamic question generation, score tracking, and a fully responsive interface — deployed on GitHub Pages.</p>
+  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard — Case Study screenshot"></picture></div>
+  <div class="cs-meta reveal"><span class="card-tag">JavaScript</span><span class="card-tag">HTML5</span><span class="card-tag">CSS3</span><span class="card-tag">GitHub Pages</span></div>
+  <div class="cs-section reveal"><h2>The Problem</h2><p>Studying is easier with instant feedback, but most quiz tools are heavy or full of distractions. Quizard was built as a lightweight, focused quiz app: open it, answer questions, see your score immediately — nothing else gets in the way.</p></div>
+  <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Dynamic question generation</strong> so every session feels fresh instead of repeating a fixed list.</li>
+        <li><strong>Instant score tracking</strong> with clear right/wrong feedback after each round.</li>
+        <li><strong>Fully responsive interface</strong> that works comfortably on phones, tablets, and desktops.</li>
+        <li><strong>Zero-backend hosting</strong> on GitHub Pages — fast, free, and always available.</li></ul></div>
+  <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
+  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
+</div>
+<!-- /wp:html -->', 'Quizard — Personal Project', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500002', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
+
+-- palale page 500001 (upsert, case study)
 INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500001, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Case Study</div>
@@ -380,22 +399,4 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
 </div>
 <!-- /wp:html -->', 'Palale Enrollment System — Case Study', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500001', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
-
--- case study page 500002 (upsert)
-INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500002, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
-<div class="page-section">
-  <div class="tagline reveal reveal-delay-1">Case Study</div>
-  <h2 class="reveal reveal-delay-2">Quizard — Case Study</h2>
-  <p class="section-sub reveal reveal-delay-3">An interactive quiz platform with dynamic question generation, score tracking, and a fully responsive interface — deployed on GitHub Pages.</p>
-  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard — Case Study screenshot"></picture></div>
-  <div class="cs-meta reveal"><span class="card-tag">JavaScript</span><span class="card-tag">HTML5</span><span class="card-tag">CSS3</span><span class="card-tag">GitHub Pages</span></div>
-  <div class="cs-section reveal"><h2>The Problem</h2><p>Studying is easier with instant feedback, but most quiz tools are heavy or full of distractions. Quizard was built as a lightweight, focused quiz app: open it, answer questions, see your score immediately — nothing else gets in the way.</p></div>
-  <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Dynamic question generation</strong> so every session feels fresh instead of repeating a fixed list.</li>
-        <li><strong>Instant score tracking</strong> with clear right/wrong feedback after each round.</li>
-        <li><strong>Fully responsive interface</strong> that works comfortably on phones, tablets, and desktops.</li>
-        <li><strong>Zero-backend hosting</strong> on GitHub Pages — fast, free, and always available.</li></ul></div>
-  <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
-  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
-</div>
-<!-- /wp:html -->', 'Quizard — Case Study', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500002', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
 

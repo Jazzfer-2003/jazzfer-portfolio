@@ -332,3 +332,9 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 
 -- Portfolio v3 - resume buttons, home stats, experience section, github chart, cert filters + webp, case studies (pages 100,101)
 USE wordpress;
+
+-- Hero buttons: text arrows replaced with aligned SVG icons (page 10); resume text normalized (10, 11, 13)
+USE wordpress;
+
+-- Quizard relabeled: Personal Project (was Case Study) — card link, page title, tagline
+USE wordpress;
