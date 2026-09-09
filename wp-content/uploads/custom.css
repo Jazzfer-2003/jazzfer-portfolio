@@ -1333,3 +1333,26 @@ header.ct-header#header nav .sub-menu .ct-menu-link {
   text-transform: none !important;
   letter-spacing: normal !important;
 }
+
+/* ─── v3.2: make the dropdown actually open on hover and clickable ─── */
+header.ct-header#header nav li.menu-item-has-children:hover > .sub-menu,
+header.ct-header#header nav li.menu-item-has-children:focus-within > .sub-menu,
+header.ct-header#header nav li.page_item_has_children:hover > .sub-menu,
+header.ct-header#header nav li.page_item_has_children:focus-within > .sub-menu,
+header.ct-header#header nav li.ct-menu-item-is-open > .sub-menu {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+header.ct-header#header nav .sub-menu {
+  z-index: 100;
+}
+/* keep the dropdown open while moving across the small gap below the header */
+header.ct-header#header nav .sub-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -14px;
+  height: 14px;
+}
