@@ -1,5 +1,5 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
--- Regenerate with: php gen-deploy-sql.php (UPDATEs) — this file also carries page INSERTs.
+-- Regenerate with: php gen-deploy-sql.php (UPDATEs) — this file also carries case-study upserts.
 
 -- page 10
 UPDATE wp_posts SET post_content='
@@ -363,8 +363,8 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 </div>
 <!-- /wp:html -->' WHERE ID=44;
 
--- case study page 100
-INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) SELECT 100, 1, post_date, post_date_gmt, '<!-- wp:html -->
+-- case study page 100 (upsert)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (100, 1, '2026-09-09 16:08:17', '2026-09-09 16:08:17', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Case Study</div>
   <h2 class="reveal reveal-delay-2">Palale Enrollment System — Case Study</h2>
@@ -379,27 +379,10 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
   <div class="cs-section reveal"><h2>What I Learned</h2><p>The biggest challenge was modeling the enrollment workflow so records could never end up in a half-finished state. I solved it by designing the database schema around clear statuses and building the admin dashboard around those states. Deploying on Render also taught me a lot about configuring PHP applications and MySQL services in the cloud.</p></div>
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
 </div>
-<!-- /wp:html -->', 'Palale Enrollment System — Case Study', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', post_modified, post_modified_gmt, '', 12, 'https://jazzfer.great-site.net/?page_id=100', 0, 'page', '', 0 FROM (SELECT 1) seed WHERE NOT EXISTS (SELECT 1 FROM wp_posts WHERE ID=100);
+<!-- /wp:html -->', 'Palale Enrollment System — Case Study', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-09 16:08:17', '2026-09-09 16:08:17', '', 12, 'https://jazzfer.great-site.net/?page_id=100', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_modified=VALUES(post_modified), post_parent=VALUES(post_parent);
 
-UPDATE wp_posts SET post_content='<!-- wp:html -->
-<div class="page-section">
-  <div class="tagline reveal reveal-delay-1">Case Study</div>
-  <h2 class="reveal reveal-delay-2">Palale Enrollment System — Case Study</h2>
-  <p class="section-sub reveal reveal-delay-3">A complete web-based enrollment system handling student registration, subject management, and enrollment records with a secure admin dashboard — deployed live on Render.</p>
-  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/enrollment-system.png" alt="Palale Enrollment System — Case Study screenshot"></picture></div>
-  <div class="cs-meta reveal"><span class="card-tag">PHP</span><span class="card-tag">MySQL</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span></div>
-  <div class="cs-section reveal"><h2>The Problem</h2><p>Enrollment processes that depend on paper records and spreadsheets are slow, error-prone, and hard to audit. The goal of this project was to replace that workflow with a system where student data stays organized, enrollment status is clear at a glance, and administrators can manage everything from one place.</p></div>
-  <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Student registration</strong> with input validation so records stay clean from the start.</li>
-        <li><strong>Subject management</strong> — add, edit, and organize subjects per school term.</li>
-        <li><strong>Enrollment records</strong> that track each student''s status through the process.</li>
-        <li><strong>Secure admin dashboard</strong> separating administrative tools from student-facing pages.</li></ul></div>
-  <div class="cs-section reveal"><h2>What I Learned</h2><p>The biggest challenge was modeling the enrollment workflow so records could never end up in a half-finished state. I solved it by designing the database schema around clear statuses and building the admin dashboard around those states. Deploying on Render also taught me a lot about configuring PHP applications and MySQL services in the cloud.</p></div>
-  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
-</div>
-<!-- /wp:html -->', post_title='Palale Enrollment System — Case Study', post_status='publish' WHERE ID=100;
-
--- case study page 101
-INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) SELECT 101, 1, post_date, post_date_gmt, '<!-- wp:html -->
+-- case study page 101 (upsert)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (101, 1, '2026-09-09 16:08:17', '2026-09-09 16:08:17', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Case Study</div>
   <h2 class="reveal reveal-delay-2">Quizard — Case Study</h2>
@@ -414,22 +397,5 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
   <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
 </div>
-<!-- /wp:html -->', 'Quizard — Case Study', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', post_modified, post_modified_gmt, '', 12, 'https://jazzfer.great-site.net/?page_id=101', 0, 'page', '', 0 FROM (SELECT 1) seed WHERE NOT EXISTS (SELECT 1 FROM wp_posts WHERE ID=101);
-
-UPDATE wp_posts SET post_content='<!-- wp:html -->
-<div class="page-section">
-  <div class="tagline reveal reveal-delay-1">Case Study</div>
-  <h2 class="reveal reveal-delay-2">Quizard — Case Study</h2>
-  <p class="section-sub reveal reveal-delay-3">An interactive quiz platform with dynamic question generation, score tracking, and a fully responsive interface — deployed on GitHub Pages.</p>
-  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard — Case Study screenshot"></picture></div>
-  <div class="cs-meta reveal"><span class="card-tag">JavaScript</span><span class="card-tag">HTML5</span><span class="card-tag">CSS3</span><span class="card-tag">GitHub Pages</span></div>
-  <div class="cs-section reveal"><h2>The Problem</h2><p>Studying is easier with instant feedback, but most quiz tools are heavy or full of distractions. Quizard was built as a lightweight, focused quiz app: open it, answer questions, see your score immediately — nothing else gets in the way.</p></div>
-  <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Dynamic question generation</strong> so every session feels fresh instead of repeating a fixed list.</li>
-        <li><strong>Instant score tracking</strong> with clear right/wrong feedback after each round.</li>
-        <li><strong>Fully responsive interface</strong> that works comfortably on phones, tablets, and desktops.</li>
-        <li><strong>Zero-backend hosting</strong> on GitHub Pages — fast, free, and always available.</li></ul></div>
-  <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
-  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
-</div>
-<!-- /wp:html -->', post_title='Quizard — Case Study', post_status='publish' WHERE ID=101;
+<!-- /wp:html -->', 'Quizard — Case Study', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-09 16:08:17', '2026-09-09 16:08:17', '', 12, 'https://jazzfer.great-site.net/?page_id=101', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_modified=VALUES(post_modified), post_parent=VALUES(post_parent);
 
