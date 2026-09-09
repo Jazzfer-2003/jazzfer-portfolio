@@ -1,5 +1,5 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
--- Regenerate with: php gen-deploy-sql.php (UPDATEs) — this file also carries case-study upserts.
+-- Dates are UTC-normalized so pages are never "future" on the live server.
 
 -- page 10
 UPDATE wp_posts SET post_content='
@@ -363,8 +363,8 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 </div>
 <!-- /wp:html -->' WHERE ID=44;
 
--- case study page 100 (upsert)
-INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (100, 1, '2026-09-09 16:08:17', '2026-09-09 16:08:17', '<!-- wp:html -->
+-- case study page 100 (upsert, UTC dates)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (100, 1, '2026-09-09 16:21:39', '2026-09-09 16:21:39', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Case Study</div>
   <h2 class="reveal reveal-delay-2">Palale Enrollment System — Case Study</h2>
@@ -379,10 +379,10 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
   <div class="cs-section reveal"><h2>What I Learned</h2><p>The biggest challenge was modeling the enrollment workflow so records could never end up in a half-finished state. I solved it by designing the database schema around clear statuses and building the admin dashboard around those states. Deploying on Render also taught me a lot about configuring PHP applications and MySQL services in the cloud.</p></div>
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
 </div>
-<!-- /wp:html -->', 'Palale Enrollment System — Case Study', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-09 16:08:17', '2026-09-09 16:08:17', '', 12, 'https://jazzfer.great-site.net/?page_id=100', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_modified=VALUES(post_modified), post_parent=VALUES(post_parent);
+<!-- /wp:html -->', 'Palale Enrollment System — Case Study', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-09 16:21:39', '2026-09-09 16:21:39', '', 12, 'https://jazzfer.great-site.net/?page_id=100', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_modified=VALUES(post_modified), post_modified_gmt=VALUES(post_modified_gmt), post_date=VALUES(post_date), post_date_gmt=VALUES(post_date_gmt), post_parent=VALUES(post_parent);
 
--- case study page 101 (upsert)
-INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (101, 1, '2026-09-09 16:08:17', '2026-09-09 16:08:17', '<!-- wp:html -->
+-- case study page 101 (upsert, UTC dates)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (101, 1, '2026-09-09 16:21:39', '2026-09-09 16:21:39', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Case Study</div>
   <h2 class="reveal reveal-delay-2">Quizard — Case Study</h2>
@@ -397,5 +397,5 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
   <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
 </div>
-<!-- /wp:html -->', 'Quizard — Case Study', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-09 16:08:17', '2026-09-09 16:08:17', '', 12, 'https://jazzfer.great-site.net/?page_id=101', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_modified=VALUES(post_modified), post_parent=VALUES(post_parent);
+<!-- /wp:html -->', 'Quizard — Case Study', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-09 16:21:39', '2026-09-09 16:21:39', '', 12, 'https://jazzfer.great-site.net/?page_id=101', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_modified=VALUES(post_modified), post_modified_gmt=VALUES(post_modified_gmt), post_date=VALUES(post_date), post_date_gmt=VALUES(post_date_gmt), post_parent=VALUES(post_parent);
 
