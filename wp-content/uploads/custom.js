@@ -222,3 +222,77 @@
     initAll();
   }
 })();
+
+  /* ─── Certification filters ─── */
+  function initCertFilters() {
+    var bar = document.querySelector('.cert-filters');
+    var grid = document.querySelector('.card-grid');
+    if (!bar || !grid) return;
+    var buttons = bar.querySelectorAll('.cert-filter');
+    var cards = grid.querySelectorAll('.card-item');
+
+    // Derive each card's category + year from its tags.
+    cards.forEach(function(card) {
+      var tags = [...card.querySelectorAll('.card-tag')].map(function(t) {
+        return t.textContent.trim();
+      });
+      var isCisco = tags.some(function(t) { return /cisco netacad/i.test(t); });
+      var year = tags.find(function(t) { return /^(19|20)\d{2}$/.test(t); }) || '';
+      card.setAttribute('data-cat', isCisco ? 'cisco' : 'seminar');
+      card.setAttribute('data-year', year);
+    });
+
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        buttons.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        cards.forEach(function(card) {
+          var show =
+            f === 'all' ||
+            card.getAttribute('data-cat') === f ||
+            card.getAttribute('data-year') === f;
+          card.classList.toggle('cert-item-hidden', !show);
+        });
+      });
+    });
+  }
+
+  /* ─── Count-up stats ─── */
+  function initCountUp() {
+    var nums = document.querySelectorAll('.pf-stat-num');
+    if (!nums.length) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        var el = entry.target;
+        var raw = el.textContent.trim();
+        var match = raw.match(/^(\d+)(.*)$/);
+        if (!match || reduce) return;
+        var end = parseInt(match[1], 10);
+        var suffix = match[2] || '';
+        var started = null;
+        function step(ts) {
+          if (!started) started = ts;
+          var p = Math.min((ts - started) / 900, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(end * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    nums.forEach(function(el) { observer.observe(el); });
+  }
+
+  /* ─── Init (append to existing loader) ─── */
+  (function() {
+    var boot = function() { initCertFilters(); initCountUp(); };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+  })();

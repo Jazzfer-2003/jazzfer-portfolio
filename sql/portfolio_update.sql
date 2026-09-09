@@ -329,3 +329,6 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
   </div>
 </div>
 <!-- /wp:html -->' WHERE ID=44;
+
+-- Portfolio v3 - resume buttons, home stats, experience section, github chart, cert filters + webp, case studies (pages 100,101)
+USE wordpress;

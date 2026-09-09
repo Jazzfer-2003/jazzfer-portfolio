@@ -1117,3 +1117,167 @@ body[data-dark="true"] .timeline-item::before {
     transform: none !important;
   }
 }
+
+/* ═══════════ v3 additions: résumé button, home stats, cert filters, case studies ═══════════ */
+
+/* Résumé / outline button variant */
+.btn-gradient.outline {
+  background: transparent;
+  border: 2px solid var(--pf-accent);
+  color: var(--pf-accent);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.btn-gradient.outline:hover {
+  background: var(--pf-accent);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Home stats strip */
+.pf-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+.pf-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 34px;
+  border-radius: 16px;
+  background: var(--pf-card);
+  border: 1px solid var(--pf-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pf-stat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+.pf-stat-num {
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--pf-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+.pf-stat-label {
+  font-size: 0.85rem;
+  color: var(--pf-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Certification filter bar */
+.cert-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 24px 0 36px;
+}
+.cert-filter {
+  border: 1px solid var(--pf-border);
+  background: var(--pf-card);
+  color: var(--pf-text);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.cert-filter:hover {
+  border-color: var(--pf-accent);
+  color: var(--pf-accent);
+}
+.cert-filter.active {
+  background: var(--pf-grad);
+  border-color: transparent;
+  color: #fff;
+}
+.cert-item-hidden {
+  display: none !important;
+}
+
+/* Case study pages */
+.cs-hero {
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 30px 0 40px;
+  border: 1px solid var(--pf-border);
+}
+.cs-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+.cs-meta .card-tag {
+  font-size: 0.85rem;
+}
+.cs-section {
+  margin-top: 46px;
+}
+.cs-section h2 {
+  margin-bottom: 14px;
+}
+.cs-section ul {
+  padding-left: 22px;
+  line-height: 1.9;
+  opacity: 0.9;
+}
+.cs-links {
+  margin-top: 34px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cs-back {
+  margin-top: 60px;
+  text-align: center;
+}
+
+/* GitHub chart embed */
+.ghchart-wrap {
+  border: 1px solid var(--pf-border);
+  border-radius: 16px;
+  padding: 18px;
+  background: var(--pf-card);
+  overflow-x: auto;
+}
+.ghchart-wrap img {
+  width: 100%;
+  max-width: 880px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+body[data-dark="true"] .pf-stat {
+  background: rgba(255, 255, 255, 0.04);
+}
+body[data-dark="true"] .cert-filter {
+  background: rgba(255, 255, 255, 0.04);
+}
+body[data-dark="true"] .ghchart-wrap {
+  background: rgba(255, 255, 255, 0.04);
+}
+body[data-dark="true"] .ghchart-wrap img {
+  filter: invert(0.88) hue-rotate(180deg);
+}

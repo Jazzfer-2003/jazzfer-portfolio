@@ -53,6 +53,8 @@ wp-content/cache/
 wp-content/uploads/certs/*
 !wp-content/uploads/certs/cert-*.png
 !wp-content/uploads/certs/cert-*.jpg
+!wp-content/uploads/certs/cert-*.webp
+!wp-content/uploads/Jazzfer-Inigo-Resume.pdf
 wp-content/uploads/wpcf7_uploads/
 wp-content/uploads/2026/07/*-150x150.*
 wp-content/uploads/2026/07/*-300x300.*
