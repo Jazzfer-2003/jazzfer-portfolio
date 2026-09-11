@@ -146,7 +146,23 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
         
       </div>
     </div>
+        <div class="card-item reveal">
+      <div class="card-img"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/minalungao-go.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/minalungao-go.jpg" alt="MinalungaoGO" loading="lazy" decoding="async" width="1900" height="905"></picture></div>
+      <div class="card-body">
+        <h3>MinalungaoGO</h3>
+        <div class="card-tags"><span class="card-tag">School Project</span><span class="card-tag">Web App</span></div>
+        <p>A tourism website for Minalungao National Park in Nueva Ecija, built for school — showcasing emerald rivers, bamboo rafting, and rock formations with login and guest exploration features.</p>
+      </div>
+    </div>
     <div class="card-item reveal">
+      <div class="card-img"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/booknook-library-system.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/booknook-library-system.jpg" alt="BookNook Library System" loading="lazy" decoding="async" width="1920" height="988"></picture></div>
+      <div class="card-body">
+        <h3>BookNook Library System</h3>
+        <div class="card-tags"><span class="card-tag">School Project</span><span class="card-tag">Web App</span></div>
+        <p>A library management system built for school — track titles and available copies, log borrow and return transactions, browse book details, and manage everything through a secure admin area.</p>
+      </div>
+    </div>
+<div class="card-item reveal">
       <div class="card-img" style="font-size:3.5rem">&#x1F680;</div>
       <div class="card-body">
         <h3>More Coming Soon</h3>
@@ -364,7 +380,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 </div>
 <!-- /wp:html -->' WHERE ID=44;
 
--- palale page 500001 (upsert, capstone project)
+-- Palale Enrollment System — Capstone Project (upsert)
 INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500001, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Capstone Project</div>
@@ -382,7 +398,7 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
 </div>
 <!-- /wp:html -->', 'Palale Enrollment System — Capstone Project', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500001', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
 
--- quizard page 500002 (upsert, personal project)
+-- Quizard — Personal Project (upsert)
 INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500002, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Personal Project</div>

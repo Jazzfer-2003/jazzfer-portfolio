@@ -341,3 +341,6 @@ USE wordpress;
 
 -- Palale Enrollment System relabeled: Capstone Project (card tag/link, page title/tagline, About mention)
 USE wordpress;
+
+-- Added MinalungaoGO + BookNook Library System school project cards to Portfolio
+USE wordpress;
