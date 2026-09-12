@@ -350,3 +350,6 @@ USE wordpress;
 
 -- Renamed Portfolio page title to Projects (nav/footer labels); case-study back-links updated
 USE wordpress;
+
+-- Footer menu label and hero tagline renamed Portfolio → Projects
+USE wordpress;

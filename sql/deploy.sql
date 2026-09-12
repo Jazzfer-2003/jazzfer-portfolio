@@ -1,14 +1,15 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
 -- Case studies use IDs 500001/500002 (collision-proof) and past dates (host clock skew safe).
 -- Palale = Capstone Project (500001); Quizard = Personal Project (500002).
--- Page 12 is titled Projects (nav label); slug stays /portfolio/ so old links keep working.
+-- Page 12 titled Projects; footer menu label + hero tagline renamed to match.
 
 UPDATE wp_posts SET post_title='Projects' WHERE ID=12;
+UPDATE wp_posts SET post_title='Projects' WHERE post_type='nav_menu_item' AND post_title='Portfolio';
 
 -- page 10
 UPDATE wp_posts SET post_content='
 <div class="hero-section"><img class="pf-avatar" src="https://jazzfer.great-site.net/wp-content/uploads/2026/07/project-pic.jpeg" alt="Jazzfer Inigo">
-  <div class="tagline reveal reveal-delay-1">Portfolio</div>
+  <div class="tagline reveal reveal-delay-1">Projects</div>
   <h1 class="reveal reveal-delay-2">Hi, I&#8217;m <span>Jazzfer Inigo</span></h1>
   <p class="subtitle reveal reveal-delay-3">4th Year I.T Student &amp; Web Developer</p>
   <p class="desc reveal reveal-delay-3">Passionate about crafting modern web experiences. Currently studying Information Technology and turning ideas into reality through clean, efficient code.</p>
