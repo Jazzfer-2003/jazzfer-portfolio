@@ -151,7 +151,7 @@ function jazzfer_custom_footer() {
       <div class="pf-footer-title">Explore</div>
       <ul>
         <li><a href="<?php echo esc_url(home_url('/about/')); ?>">About</a></li>
-        <li><a href="<?php echo esc_url(home_url('/portfolio/')); ?>">Portfolio</a></li>
+        <li><a href="<?php echo esc_url(home_url('/portfolio/')); ?>">Projects</a></li>
         <li><a href="<?php echo esc_url(home_url('/certifications/')); ?>">Certifications</a></li>
         <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact</a></li>
         <?php if ($privacy) : ?>
