@@ -1,6 +1,9 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
 -- Case studies use IDs 500001/500002 (collision-proof) and past dates (host clock skew safe).
 -- Palale = Capstone Project (500001); Quizard = Personal Project (500002).
+-- Page 12 is titled Projects (nav label); slug stays /portfolio/ so old links keep working.
+
+UPDATE wp_posts SET post_title='Projects' WHERE ID=12;
 
 -- page 10
 UPDATE wp_posts SET post_content='
@@ -442,7 +445,7 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
         <li><strong>Enrollment records</strong> that track each student''s status through the process.</li>
         <li><strong>Secure admin dashboard</strong> separating administrative tools from student-facing pages.</li></ul></div>
   <div class="cs-section reveal"><h2>What I Learned</h2><p>The biggest challenge was modeling the enrollment workflow so records could never end up in a half-finished state. I solved it by designing the database schema around clear statuses and building the admin dashboard around those states. Deploying on Render also taught me a lot about configuring PHP applications and MySQL services in the cloud.</p></div>
-  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
+  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://palale-enrollment-system.onrender.com/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Projects</a></div>
 </div>
 <!-- /wp:html -->', 'Palale Enrollment System — Capstone Project', '', 'publish', 'closed', 'closed', '', 'palale-enrollment-system', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500001', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
 
@@ -460,7 +463,7 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
         <li><strong>Fully responsive interface</strong> that works comfortably on phones, tablets, and desktops.</li>
         <li><strong>Zero-backend hosting</strong> on GitHub Pages — fast, free, and always available.</li></ul></div>
   <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
-  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Portfolio</a></div>
+  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Projects</a></div>
 </div>
 <!-- /wp:html -->', 'Quizard — Personal Project', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500002', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
 

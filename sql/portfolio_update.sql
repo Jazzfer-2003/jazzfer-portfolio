@@ -347,3 +347,6 @@ USE wordpress;
 
 -- Privacy policy rewritten professionally (page 90) — now also deployed to live via deploy.sql
 USE wordpress;
+
+-- Renamed Portfolio page title to Projects (nav/footer labels); case-study back-links updated
+USE wordpress;

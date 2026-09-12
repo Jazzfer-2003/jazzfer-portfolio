@@ -1388,3 +1388,12 @@ header.ct-header#header nav .sub-menu::before {
 .policy-block a {
   color: var(--pf-accent);
 }
+
+/* ─── v3.5: flat desktop nav — no dropdown under Projects ─── */
+.header-menu-1 .sub-menu {
+  display: none !important;
+}
+.header-menu-1 .ct-toggle-dropdown-desktop,
+.header-menu-1 .ct-toggle-dropdown-desktop-ghost {
+  display: none !important;
+}
