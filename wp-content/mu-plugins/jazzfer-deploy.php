@@ -35,9 +35,19 @@ add_action('rest_api_init', function () {
 
 function jazzfer_deploy_diag(WP_REST_Request $request) {
     global $wpdb;
-    $rows = $wpdb->get_results("SELECT ID, post_status, post_type, post_parent, post_name, post_date, post_date_gmt, post_modified FROM {$wpdb->posts} WHERE ID IN (100,101,12) ORDER BY ID", ARRAY_A);
+    $rows = $wpdb->get_results("SELECT ID, post_status, post_type, post_parent, post_name, post_date, post_date_gmt, post_modified FROM {$wpdb->posts} WHERE ID IN (100,101,12,500001,500002) ORDER BY ID", ARRAY_A);
+    $menuItems = $wpdb->get_results("
+        SELECT p.ID, p.post_title, p.post_status,
+               obj.meta_value AS object_id,
+               PARSE_URL_META.meta_value AS parent_item
+        FROM {$wpdb->posts} p
+        LEFT JOIN {$wpdb->postmeta} obj ON obj.post_id = p.ID AND obj.meta_key = '_menu_item_object_id'
+        LEFT JOIN {$wpdb->postmeta} PARSE_URL_META ON PARSE_URL_META.post_id = p.ID AND PARSE_URL_META.meta_key = '_menu_item_menu_item_parent'
+        WHERE p.post_type = 'nav_menu_item'
+        ORDER BY p.ID", ARRAY_A);
     return rest_ensure_response(array(
         'rows' => $rows,
+        'menuItems' => $menuItems,
         'mysql_now' => $wpdb->get_var("SELECT NOW()"),
         'timezone' => function_exists('wp_timezone_string') ? wp_timezone_string() : get_option('timezone_string'),
     ));
