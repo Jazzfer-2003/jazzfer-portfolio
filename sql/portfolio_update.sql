@@ -344,3 +344,6 @@ USE wordpress;
 
 -- Added MinalungaoGO + BookNook Library System school project cards to Portfolio
 USE wordpress;
+
+-- Privacy policy rewritten professionally (page 90) — now also deployed to live via deploy.sql
+USE wordpress;

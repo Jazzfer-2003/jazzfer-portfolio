@@ -380,6 +380,54 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
 </div>
 <!-- /wp:html -->' WHERE ID=44;
 
+-- page 90
+UPDATE wp_posts SET post_content='<!-- wp:html -->
+<div class="page-section">
+  <h2 class="reveal">Privacy Policy</h2>
+  <p class="section-sub reveal">Last updated: September 12, 2026</p>
+
+  <div class="policy-block">
+    <h3>1. Overview</h3>
+    <p>This Privacy Policy explains how this personal portfolio website (the "Website"), operated by Jazzfer Inigo ("I", "me"), collects, uses, and protects information when you visit. By using the Website, you agree to the practices described below.</p>
+
+    <h3>2. Information Collected</h3>
+    <p><strong>Information you provide.</strong> If you use the contact form, the name, email address, and message you submit are collected solely to respond to your inquiry.</p>
+    <p><strong>Information collected automatically.</strong> Like most websites, the Website uses Google Analytics to collect standard, anonymous usage data — such as pages visited, approximate location (country or city level), browser type, device, and visit duration. This data cannot be used to identify you personally.</p>
+
+    <h3>3. How Information Is Used</h3>
+    <p>Information is used only to:</p>
+    <ul>
+      <li>Respond to messages submitted through the contact form;</li>
+      <li>Understand aggregate visitor traffic and improve the Website''s content and performance;</li>
+      <li>Maintain the security and operation of the Website.</li>
+    </ul>
+    <p>No information is sold, rented, or shared with third parties for marketing purposes.</p>
+
+    <h3>4. Cookies and Local Storage</h3>
+    <p>The Website stores one small value in your browser''s local storage — <code>pf-theme</code> — to remember whether you prefer light or dark mode. This preference stays on your device and is never transmitted to me or anyone else.</p>
+    <p>Google Analytics may set its own cookies to measure usage over time. You can disable cookies in your browser settings without affecting the core functionality of the Website.</p>
+
+    <h3>5. Google Analytics</h3>
+    <p>The Website uses Google Analytics, a web analytics service provided by Google, LLC. Google handles the collected data in accordance with its own privacy policy, available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>. You may opt out of Google Analytics using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">official browser add-on</a>.</p>
+
+    <h3>6. Third-Party Services</h3>
+    <p>The Website relies on a small number of trusted providers: a hosting provider (iFastNet / InfinityFree) that serves the Website and processes standard server logs, and Gmail, which delivers contact form messages to my inbox. The Website also links to external profiles — GitHub, LinkedIn, and Facebook — which are governed by their respective privacy policies.</p>
+
+    <h3>7. Data Retention and Security</h3>
+    <p>Contact form messages are retained only for as long as needed to handle your inquiry. Reasonable technical measures are in place to protect the Website; however, no method of transmission over the Internet is completely secure, and absolute protection cannot be guaranteed.</p>
+
+    <h3>8. Your Rights</h3>
+    <p>You may request access to, correction of, or deletion of any personal information you have submitted through the Website by emailing me. You may also block analytics cookies or use private browsing at any time.</p>
+
+    <h3>9. Changes to This Policy</h3>
+    <p>This Privacy Policy may be updated occasionally to reflect changes in the Website or applicable requirements. The "Last updated" date above indicates the current version.</p>
+
+    <h3>10. Contact</h3>
+    <p>Questions about this Privacy Policy can be sent to <a href="mailto:jazzferinigo@gmail.com">jazzferinigo@gmail.com</a>.</p>
+  </div>
+</div>
+<!-- /wp:html -->' WHERE ID=90;
+
 -- Palale Enrollment System — Capstone Project (upsert)
 INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500001, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
 <div class="page-section">
