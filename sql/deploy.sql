@@ -1,6 +1,6 @@
 -- deploy.sql — applied to the live database by the GitHub Actions workflow.
--- Case studies use IDs 500001/500002 (collision-proof) and past dates (host clock skew safe).
--- Palale = Capstone Project (500001); Quizard = Personal Project (500002).
+-- Case studies live at IDs 500001-500003, parented to Projects (12) so /portfolio/<slug>/ URLs hold.
+-- Palale = Capstone Project (500001); Quizard = Personal Project (500002, Ionic/Angular); Google Sites = School Activity (500003).
 -- Page 12 titled Projects; footer menu label + hero tagline renamed to match.
 
 UPDATE wp_posts SET post_title='Projects' WHERE ID=12;
@@ -109,7 +109,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
       <div class="card-img"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard - QuizForge App" loading="lazy" decoding="async" width="1920" height="1080"></picture></div>
       <div class="card-body">
         <h3>Quizard - QuizForge App</h3>
-        <div class="card-tags"><span class="card-tag">JavaScript</span><span class="card-tag">HTML</span><span class="card-tag">CSS</span><span class="card-tag">GitHub Pages</span></div>
+        <div class="card-tags"><span class="card-tag">Ionic</span><span class="card-tag">Angular</span><span class="card-tag">GitHub Pages</span></div>
         <p>An interactive quiz platform with dynamic question generation, score tracking, and responsive design - deployed on GitHub Pages.</p>
         <div class="card-links"><a href="https://jazzfer.great-site.net/portfolio/quizard/">Personal Project</a><a href="https://quizard-app.github.io/" target="_blank" rel="noopener" aria-label="View live site for Quizard QuizForge App (opens in new tab)">View Live Site</a></div>
       </div>
@@ -120,7 +120,7 @@ UPDATE wp_posts SET post_content='<!-- wp:html -->
         <h3>Google Sites Portfolio</h3>
         <div class="card-tags"><span class="card-tag">Google Sites</span><span class="card-tag">Portfolio</span></div>
         <p>My alternative portfolio built on Google Sites - featuring my projects, skills, and achievements with a clean, accessible layout.</p>
-        <div class="card-links"><a href="https://sites.google.com/view/jazzfer-inigo-portfolio/home" target="_blank" rel="noopener" aria-label="View live site for Google Sites Portfolio (opens in new tab)">View Live Site</a></div>
+        <div class="card-links"><a href="https://jazzfer.great-site.net/portfolio/google-sites-portfolio/">School Activity</a><a href="https://sites.google.com/view/jazzfer-inigo-portfolio/home" target="_blank" rel="noopener" aria-label="View live site for Google Sites Portfolio (opens in new tab)">View Live Site</a></div>
       </div>
     </div>
     <div class="card-item reveal">
@@ -455,16 +455,35 @@ INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, p
 <div class="page-section">
   <div class="tagline reveal reveal-delay-1">Personal Project</div>
   <h2 class="reveal reveal-delay-2">Quizard — Personal Project</h2>
-  <p class="section-sub reveal reveal-delay-3">An interactive quiz platform with dynamic question generation, score tracking, and a fully responsive interface — deployed on GitHub Pages.</p>
+  <p class="section-sub reveal reveal-delay-3">An interactive quiz platform with dynamic question generation, score tracking, and a fully responsive interface — built with Ionic and Angular, deployed on GitHub Pages.</p>
   <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/quizard.png" alt="Quizard — Personal Project screenshot"></picture></div>
-  <div class="cs-meta reveal"><span class="card-tag">JavaScript</span><span class="card-tag">HTML5</span><span class="card-tag">CSS3</span><span class="card-tag">GitHub Pages</span></div>
+  <div class="cs-meta reveal"><span class="card-tag">Ionic</span><span class="card-tag">Angular</span><span class="card-tag">GitHub Pages</span></div>
   <div class="cs-section reveal"><h2>The Problem</h2><p>Studying is easier with instant feedback, but most quiz tools are heavy or full of distractions. Quizard was built as a lightweight, focused quiz app: open it, answer questions, see your score immediately — nothing else gets in the way.</p></div>
   <div class="cs-section reveal"><h2>What I Built</h2><ul><li><strong>Dynamic question generation</strong> so every session feels fresh instead of repeating a fixed list.</li>
         <li><strong>Instant score tracking</strong> with clear right/wrong feedback after each round.</li>
         <li><strong>Fully responsive interface</strong> that works comfortably on phones, tablets, and desktops.</li>
         <li><strong>Zero-backend hosting</strong> on GitHub Pages — fast, free, and always available.</li></ul></div>
-  <div class="cs-section reveal"><h2>What I Learned</h2><p>Building the quiz logic in vanilla JavaScript — without a framework — was a deliberate choice. It forced clean state management for questions, answers, and scoring, and made the app fast enough to feel instant on slow connections. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
+  <div class="cs-section reveal"><h2>What I Learned</h2><p>Building Quizard with Ionic and Angular taught me component-based development — structuring the quiz logic into reusable components, managing state cleanly, and using Ionic''s UI components for a fast, native-feeling experience on any device. Shipping it through GitHub Pages rounded out the deployment workflow.</p></div>
   <div class="cs-links reveal"><a class="btn-gradient primary" href="https://quizard-app.github.io/" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Projects</a></div>
 </div>
 <!-- /wp:html -->', 'Quizard — Personal Project', '', 'publish', 'closed', 'closed', '', 'quizard', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500002', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
+
+-- Google Sites Portfolio — School Activity (upsert)
+INSERT INTO wp_posts (ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count) VALUES (500003, 1, '2026-09-01 00:00:00', '2026-09-01 00:00:00', '<!-- wp:html -->
+<div class="page-section">
+  <div class="tagline reveal reveal-delay-1">School Activity</div>
+  <h2 class="reveal reveal-delay-2">Google Sites Portfolio — School Activity</h2>
+  <p class="section-sub reveal reveal-delay-3">My alternative portfolio built on Google Sites — a school activity showcasing my projects, skills, and achievements.</p>
+  <div class="cs-hero reveal"><picture><source srcset="https://jazzfer.great-site.net/wp-content/uploads/2026/09/home.webp" type="image/webp"><img src="https://jazzfer.great-site.net/wp-content/uploads/2026/09/home.png" alt="Google Sites Portfolio screenshot"></picture></div>
+  <div class="cs-meta reveal"><span class="card-tag">Google Sites</span><span class="card-tag">School Activity</span></div>
+  <div class="cs-section reveal"><h2>Overview</h2><p>Alongside this WordPress portfolio, I built a second portfolio on Google Sites as a school activity. It presents the same body of work — my projects, skills, and achievements — through Google Sites'' clean, accessible layout.</p></div>
+  <div class="cs-section reveal"><h2>What It Includes</h2><ul>
+    <li><strong>Projects showcase</strong> — my web applications and school outputs with short descriptions.</li>
+    <li><strong>Skills and achievements</strong> — certifications and technical skills highlighted in a simple, readable layout.</li>
+    <li><strong>Accessible design</strong> — loads fast and works on any device, hosted free on Google Sites.</li>
+  </ul></div>
+  <div class="cs-section reveal"><h2>What I Learned</h2><p>Designing within a fixed platform taught me to structure content clearly and make the most of limited customization — a good exercise in layout, hierarchy, and working with constraints.</p></div>
+  <div class="cs-links reveal"><a class="btn-gradient primary" href="https://sites.google.com/view/jazzfer-inigo-portfolio/home" target="_blank" rel="noopener">View Live Site →</a><a class="btn-gradient outline" href="https://jazzfer.great-site.net/portfolio/">Back to Projects</a></div>
+</div>
+<!-- /wp:html -->', 'Google Sites Portfolio — School Activity', '', 'publish', 'closed', 'closed', '', 'google-sites-portfolio', '', '', '2026-09-01 00:00:00', '2026-09-01 00:00:00', '', 12, 'https://jazzfer.great-site.net/?page_id=500003', 0, 'page', '', 0) ON DUPLICATE KEY UPDATE post_content=VALUES(post_content), post_title=VALUES(post_title), post_status=VALUES(post_status), post_name=VALUES(post_name), post_parent=VALUES(post_parent), post_type=VALUES(post_type);
 

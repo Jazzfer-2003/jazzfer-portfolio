@@ -353,3 +353,15 @@ USE wordpress;
 
 -- Footer menu label and hero tagline renamed Portfolio → Projects
 USE wordpress;
+
+-- Quizard stack updated: Ionic + Angular (card tags, case-study tags and text)
+USE wordpress;
+
+-- Quizard stack updated: Ionic + Angular (card tags, case-study tags and text)
+USE wordpress;
+
+-- Google Sites Portfolio: School Activity link + detail page (102 local / 500003 live)
+USE wordpress;
+
+-- Quizard stack updated: Ionic + Angular (card tags, case-study tags and text)
+USE wordpress;

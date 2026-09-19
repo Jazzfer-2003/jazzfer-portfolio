@@ -1397,3 +1397,11 @@ header.ct-header#header nav .sub-menu::before {
 .header-menu-1 .ct-toggle-dropdown-desktop-ghost {
   display: none !important;
 }
+
+/* ─── v3.6: flat nav in the mobile drawer too ─── */
+.mobile-menu .sub-menu {
+  display: none !important;
+}
+.mobile-menu .ct-toggle-dropdown-mobile {
+  display: none !important;
+}
